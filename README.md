@@ -1,2 +1,2 @@
-# lzxy169.github.io
-blog for 
+# blog.lzxy169.com
+blog for deploy
