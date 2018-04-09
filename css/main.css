@@ -1057,7 +1057,7 @@ pre .javascript .function {
   box-sizing: border-box;
   position: fixed;
   bottom: -100px;
-  right: 30px;
+  right: 50px;
   z-index: 1050;
   padding: 0 6px;
   width: 24px;
@@ -1709,7 +1709,7 @@ pre .javascript .function {
 }
 .sidebar-toggle {
   position: fixed;
-  right: 30px;
+  right: 50px;
   bottom: 45px;
   width: 14px;
   height: 14px;
@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b4fff5;
+  background: #83ec6f;
 }
 .links-of-blogroll {
   font-size: 13px;
