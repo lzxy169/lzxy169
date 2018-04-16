@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.lzxy169.com/2018/04/13/c:c++_memory_management/</loc>
+    
+    <lastmod>2018-04-15T11:42:33.522Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.lzxy169.com/2018/04/10/hexo_next_startup/</loc>
     
     <lastmod>2018-04-12T12:52:49.469Z</lastmod>
