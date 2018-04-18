@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.lzxy169.com/2018/04/13/arc-record/</loc>
+    <loc>http://blog.lzxy169.com/2018/04/16/arc-record/</loc>
     
-    <lastmod>2018-04-18T15:12:08.033Z</lastmod>
+    <lastmod>2018-04-18T15:17:03.760Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.lzxy169.com/2018/04/08/hexo-next-startup/</loc>
+    
+    <lastmod>2018-04-18T15:16:22.171Z</lastmod>
     
   </url>
   
@@ -12,13 +19,6 @@
     <loc>http://blog.lzxy169.com/2018/04/13/c:c++-memory-management/</loc>
     
     <lastmod>2018-04-16T09:29:50.855Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.lzxy169.com/2018/04/10/hexo-next-startup/</loc>
-    
-    <lastmod>2018-04-16T03:49:51.538Z</lastmod>
     
   </url>
   
