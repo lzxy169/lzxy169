@@ -115,7 +115,7 @@ daovoice('init', {
 <meta property="og:site_name" content="Navy&#39;s Blog">
 <meta property="og:description" content="ARC概述　　在Objective-C中采用Automatic Reference Counting(ARC)机制，让编译器(clang)和运行时库协助(objc4)来进行内存管理。 内存管理的思考方式 自己生成的对象，自己持有 非自己生成的对象，自己也能持有 不再需要自己持有的对象时释放 非自己持有的对象无法释放  对象操作与Objective-C方法的对应：    对象操作 Objective">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-18T15:22:28.837Z">
+<meta property="og:updated_time" content="2018-04-18T15:30:06.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ARC(Automatic Reference Counting)简记">
 <meta name="twitter:description" content="ARC概述　　在Objective-C中采用Automatic Reference Counting(ARC)机制，让编译器(clang)和运行时库协助(objc4)来进行内存管理。 内存管理的思考方式 自己生成的对象，自己持有 非自己生成的对象，自己也能持有 不再需要自己持有的对象时释放 非自己持有的对象无法释放  对象操作与Objective-C方法的对应：    对象操作 Objective">
@@ -567,11 +567,11 @@ daovoice('init', {
 <p>Thread-local storage（线程局部存储）指向 hot page ，即最新添加的 autoreleased 对象所在的那个 page 。???</p>
 </blockquote>
 <ul>
-<li><strong>__weak：</strong> 表示对对象的“弱引用”。弱引用并不持有对象，不会改变赋值给附有 <strong>weak 修饰符的变量的引用计数。持有弱引用的变量，在超出其作用域时，对象即被释放。在持有某对象的弱引用时，若该对象被废弃，则此弱引用将自动失效且被赋值为 nil (空弱引用)。<strong>使用</strong> </strong>weak 修饰符的变量，即是使用注册到 autoreleasepool 中的对象，该对象的引用计数会加1.</li>
+<li><strong>__weak：</strong> 表示对对象的“弱引用”。弱引用并不持有对象，不会改变赋值给附有 __weak 修饰符的变量的引用计数。持有弱引用的变量，在超出其作用域时，对象即被释放。在持有某对象的弱引用时，若该对象被废弃，则此弱引用将自动失效且被赋值为 nil (空弱引用)。<strong>使用</strong>__weak 修饰符的变量，即是使用注册到 autoreleasepool 中的对象，该对象的引用计数会加1。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">id __strong obj = [[NSObject alloc] init];</span><br><span class="line"></span><br><span class="line">id __weak obj1 = obj;</span><br><span class="line">NSLog(@&quot;%@&quot;, obj1);</span><br><span class="line"></span><br><span class="line">// 编译器的模拟代码：</span><br><span class="line">id obj1;</span><br><span class="line">objc_initWeak(&amp;obj1, obj);</span><br><span class="line">id tmp = objc_loadWeakRetained(&amp;obj1);</span><br><span class="line">objc_autorelease(tmp);</span><br><span class="line">NSLog(@&quot;%@&quot;, tmp);</span><br><span class="line">objc_destroyWeak(&amp;obj1);</span><br><span class="line"></span><br><span class="line">id objc_initWeak(id *location, id newObj) &#123;</span><br><span class="line">    return storeWeak(location, (objc_object*)newObj);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void objc_destroyWeak(id *location) &#123;</span><br><span class="line">    (void)storeWeak(location, nil);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>　　storeWeak() 函数把第二参数的赋值对象的地址作为键值key，将第一参数的附有 <strong>weak 修饰符的变量的地址作为键值 value 注册到 </strong>weak 表中。如果第二参数(key)为 nil， 则把变量的地址(value)从 weak 表中删除。</p>
-<p>　　weak 表与引用计数表相同，作为散列表被实现。如果使用 weak 表，将废弃对象的地址作为键值key进行检索，就能高速地获取对应的附有 <strong>weak 修饰符的变量的地址。另外，由于一个对象可同时赋值给多个附有 </strong>weak 修饰符的变量中，所以对于一个键值key，可注册多个变量的地址。<br>　　<br>　　objc_loadWeakRetained() 函数取出附有 <strong>weak 修饰符变量所引用的对象并 retain。objc_autorelease() 函数将对象注册到 autoreleasepool 中 。如果大量使用附有 </strong>weak修饰符的变量，注册到 autoreleasepool 中的对象也会大量的增加，因此在使用附有 <strong>weak修饰符的变量时，最好先暂时赋值给附有 </strong>strong 修饰符的变量后使用。</p>
+<p>　　storeWeak() 函数把第二参数的赋值对象的地址作为键值key，将第一参数的附有 __weak 修饰符的变量的地址作为键值 value 注册到 __weak 表中。如果第二参数(key)为 nil， 则把变量的地址(value)从 weak 表中删除。</p>
+<p>　　weak 表与引用计数表相同，作为散列表被实现。如果使用 weak 表，将废弃对象的地址作为键值key进行检索，就能高速地获取对应的附有 __weak 修饰符的变量的地址。另外，由于一个对象可同时赋值给多个附有 __weak 修饰符的变量中，所以对于一个键值key，可注册多个变量的地址。<br>　　<br>　　objc_loadWeakRetained() 函数取出附有 __weak 修饰符变量所引用的对象并 retain。objc_autorelease() 函数将对象注册到 autoreleasepool 中 。如果大量使用附有 __weak修饰符的变量，注册到 autoreleasepool 中的对象也会大量的增加，因此在使用附有 __weak修饰符的变量时，最好先暂时赋值给附有 __strong 修饰符的变量后使用。</p>
 <p><strong>对象废弃执行的动作</strong></p>
 <ol>
 <li>objc_release</li>
