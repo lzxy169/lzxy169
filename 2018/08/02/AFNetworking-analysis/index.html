@@ -107,17 +107,17 @@ daovoice('init', {
 
 
 
-  <meta name="description" content="行之于途而应于心">
-<meta property="og:type" content="website">
-<meta property="og:title" content="search">
-<meta property="og:url" content="http://blog.lzxy169.com/search/index.html">
+  <meta name="description" content="NSURLSessionNSURLSession 使用 NSURLRequest 来包含请求信息，来生成各种类型的 Task，使用 NSURLSessionConfiguration 来生成配置信息调用 - (void)resume 来发送请求， 生成 NSURLResponse 来返回请求的信息。回调的方式有delegate，和block两种形式。 12345678910@interface N">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AFNetworking 解析">
+<meta property="og:url" content="http://blog.lzxy169.com/2018/08/02/AFNetworking-analysis/index.html">
 <meta property="og:site_name" content="Navy&#39;s Blog">
-<meta property="og:description" content="行之于途而应于心">
+<meta property="og:description" content="NSURLSessionNSURLSession 使用 NSURLRequest 来包含请求信息，来生成各种类型的 Task，使用 NSURLSessionConfiguration 来生成配置信息调用 - (void)resume 来发送请求， 生成 NSURLResponse 来返回请求的信息。回调的方式有delegate，和block两种形式。 12345678910@interface N">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-08T06:51:46.208Z">
+<meta property="og:updated_time" content="2018-08-02T05:02:41.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="search">
-<meta name="twitter:description" content="行之于途而应于心">
+<meta name="twitter:title" content="AFNetworking 解析">
+<meta name="twitter:description" content="NSURLSessionNSURLSession 使用 NSURLRequest 来包含请求信息，来生成各种类型的 Task，使用 NSURLSessionConfiguration 来生成配置信息调用 - (void)resume 来发送请求， 生成 NSURLResponse 来返回请求的信息。回调的方式有delegate，和block两种形式。 12345678910@interface N">
 
 
 
@@ -126,7 +126,7 @@ daovoice('init', {
 
 
 
-  <link rel="canonical" href="http://blog.lzxy169.com/search/"/>
+  <link rel="canonical" href="http://blog.lzxy169.com/2018/08/02/AFNetworking-analysis/"/>
 
 
 
@@ -136,7 +136,7 @@ daovoice('init', {
   };
 </script>
 
-  <title>search | Navy's Blog</title>
+  <title>AFNetworking 解析 | Navy's Blog</title>
   
 
 
@@ -308,43 +308,166 @@ daovoice('init', {
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.lzxy169.com/2018/08/02/AFNetworking-analysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Navy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Navy's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">search</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">AFNetworking 解析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T13:02:41+08:00">2018-08-02</time>
+            
+
+            
+            
+
+            
+          </span>
+
           
-        
-      </div>
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/02/AFNetworking-analysis/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/08/02/AFNetworking-analysis/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="NSURLSession"><a href="#NSURLSession" class="headerlink" title="NSURLSession"></a>NSURLSession</h3><p>NSURLSession 使用 NSURLRequest 来包含请求信息，来生成各种类型的 Task，使用 NSURLSessionConfiguration 来生成配置信息<br>调用 - (void)resume 来发送请求， 生成 NSURLResponse 来返回请求的信息。回调的方式有delegate，和block两种形式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@interface NSURLSessionDataTask : NSURLSessionTask</span><br><span class="line">@interface NSURLSessionUploadTask : NSURLSessionDataTask</span><br><span class="line">@interface NSURLSessionDownloadTask : NSURLSessionTask</span><br><span class="line">@interface NSURLSessionStreamTask : NSURLSessionTask</span><br><span class="line"></span><br><span class="line">@protocol NSURLSessionDelegate &lt;NSObject&gt;</span><br><span class="line">@protocol NSURLSessionTaskDelegate &lt;NSURLSessionDelegate&gt;</span><br><span class="line">@protocol NSURLSessionDataDelegate &lt;NSURLSessionTaskDelegate&gt;</span><br><span class="line">@protocol NSURLSessionDownloadDelegate &lt;NSURLSessionTaskDelegate&gt;</span><br><span class="line">@protocol NSURLSessionStreamDelegate &lt;NSURLSessionTaskDelegate&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="AFNetworking"><a href="#AFNetworking" class="headerlink" title="AFNetworking"></a>AFNetworking</h3><p>AFNetworking是封装的NSURLSession的网络请求。</p>
+<p><strong>AFNetworking核心由五个模块组成：</strong><br>SessionManager ：主要对象 NSURLSession 对象进行了进一步的封装<br>Request/Response Serialization，提供了与请求数据和解析数据相关的操作接口<br>SecurityPolicy，提供了与安全性相关的操作接口，主要是证书验证<br>NetworkReachabilityManager，提供了与网络状态监听相关的操作接口<br>以及的UIKit的一些类扩展，提供了大量网络请求过程中与UI界面显示相关的操作接口，通常用于网络请求过程中提示，使用户交互更加友好</p>
+<p><strong>SessionManager：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@interface AFURLSessionManager : NSObject &lt;NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate, NSSecureCoding, NSCopying&gt;</span><br><span class="line"></span><br><span class="line">@interface AFHTTPSessionManager : AFURLSessionManager &lt;NSSecureCoding, NSCopying&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>HTTPMethod：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@&quot;GET&quot;，@&quot;HEAD&quot;，@&quot;POST&quot;，@&quot;PUT&quot;，@&quot;PATCH&quot;，@&quot;DELETE&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Request：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@protocol AFURLRequestSerialization &lt;NSObject, NSSecureCoding, NSCopying&gt;</span><br><span class="line">@interface AFHTTPRequestSerializer : NSObject &lt;AFURLRequestSerialization&gt;</span><br><span class="line">@interface AFJSONRequestSerializer : AFHTTPRequestSerializer</span><br><span class="line">@interface AFPropertyListRequestSerializer : AFHTTPRequestSerializer</span><br></pre></td></tr></table></figure></p>
+<p><strong>Response：</strong><br>@protocol AFURLResponseSerialization &lt;NSObject, NSSecureCoding, NSCopying&gt;<br>@interface AFHTTPResponseSerializer : NSObject <afurlresponseserialization><br>@interface AFJSONResponseSerializer : AFHTTPResponseSerializer<br>@interface AFXMLParserResponseSerializer : AFHTTPResponseSerializer<br>@interface AFPropertyListResponseSerializer : AFHTTPResponseSerializer<br>@interface AFImageResponseSerializer : AFHTTPResponseSerializer<br>@interface AFCompoundResponseSerializer : AFHTTPResponseSerializer</afurlresponseserialization></p>
+<h3 id="YTKNetwork"><a href="#YTKNetwork" class="headerlink" title="YTKNetwork"></a>YTKNetwork</h3><p>YTKNetwork 由 Request， RequestAgent，NetworkConfig组成，对 AFNetworking 的封装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">YTKRequestMethod：</span><br><span class="line">YTKRequestMethodGET,</span><br><span class="line">YTKRequestMethodPOST,</span><br><span class="line">YTKRequestMethodHEAD,</span><br><span class="line">YTKRequestMethodPUT,</span><br><span class="line">YTKRequestMethodDELETE,</span><br><span class="line">YTKRequestMethodPATCH,</span><br><span class="line"></span><br><span class="line">Request：</span><br><span class="line">@protocol YTKRequestDelegate &lt;NSObject&gt;</span><br><span class="line">@interface YTKBaseRequest : NSObject</span><br><span class="line"></span><br><span class="line">@protocol YTKBatchRequestDelegate &lt;NSObject&gt;</span><br><span class="line">@interface YTKBatchRequest : NSObject</span><br><span class="line"></span><br><span class="line">@protocol YTKChainRequestDelegate &lt;NSObject&gt;</span><br><span class="line">@interface YTKChainRequest : NSObject</span><br></pre></td></tr></table></figure>
+
       
     </div>
+
     
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/02/algorithm-application/" rel="next" title="算法之应用">
+                <i class="fa fa-chevron-left"></i> 算法之应用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/02/APM-Open-sources/" rel="prev" title="APM Open sources">
+                APM Open sources <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
 
-    
-    
-    
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -384,8 +507,17 @@ daovoice('init', {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -489,6 +621,22 @@ daovoice('init', {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#NSURLSession"><span class="nav-number">1.</span> <span class="nav-text">NSURLSession</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AFNetworking"><span class="nav-number">2.</span> <span class="nav-text">AFNetworking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YTKNetwork"><span class="nav-number">3.</span> <span class="nav-text">YTKNetwork</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -659,9 +807,9 @@ daovoice('init', {
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://blog.lzxy169.com/search/index.html';
-        this.page.identifier = 'search/index.html';
-        this.page.title = 'search';
+        this.page.url = 'http://blog.lzxy169.com/2018/08/02/AFNetworking-analysis/';
+        this.page.identifier = '2018/08/02/AFNetworking-analysis/';
+        this.page.title = 'AFNetworking 解析';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
